@@ -1,17 +1,15 @@
 <?php
-  //Variavel de conexão com o server de bd, host, user, senha e bd
-  $conexao = mysqli_connect("localhost","root","root","imagens_devmedia"); 
+  $servername = "localhost";
+  $username = "root";
+  $password = "root";
+  $dbname = "imagens_devmedia";
+
+  //Conexão
+  $conexao = mysqli_connect($servername,$username,$password,$dbname); 
       
-  //Se conexão não é nula
-  if($conexao)
+  //Testa se conexão é nula
+  if(!$conexao)
   {
-    //Base de dados
-    /*$baseSelecionada = mysqli_select_db("imagens_devmedia");
-    if (!$baseSelecionada) {
-      die ('Não foi possível conectar a base de dados: ' . mysqli_error());
-    }*/
+    die('Não conectado : ' . mysqli_connect_error()());
   }
-  else {
-    die('Não conectado : ' . mysqli_error());
-  }  
 ?>
